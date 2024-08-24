@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagnosEase - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact2.html">Contact</a></li>
+                <li class="profile-icon" onclick="toggleProfilePopup()">👤
+                    <div class="profile-popup" id="profilePopup">
+                        <p id="profileName"></p>
+                        <p id="profileEmail"></p>
+                        <p id="profilePhone"></p>
+                </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>DiagnosEase - AI Doctor Assistance</h1>
+        <p>Get personalized health advice from our AI doctor</p>
+
+
+        <div id="chat-container">
+            <div id="chatbox">
+                <div id="messages"></div>
+                <input type="text" id="userInput" placeholder="Type your message here..." />
+                <button onclick="startVoiceSearch()">🎤</button>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        function toggleProfilePopup() {
+            const popup = document.getElementById('profilePopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onload = function() {
+            const storedData = JSON.parse(localStorage.getItem('userData'));
+            if (storedData) {
+                document.getElementById('profileName').textContent = 'Name: ' + storedData.name;
+                document.getElementById('profileEmail').textContent = 'Email: ' + storedData.email;
+                document.getElementById('profilePhone').textContent = 'Phone: ' + storedData.phone;
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

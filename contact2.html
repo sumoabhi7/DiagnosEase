@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medigo.ai - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="profile-icon" onclick="toggleProfilePopup()">👤
+                    <div class="profile-popup" id="profilePopup">
+                        <p id="profileName"></p>
+                        <p id="profileEmail"></p>
+                        <p id="profilePhone"></p>
+                </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for any queries or feedback</p>
+        <ul>
+            <li>Name: Anuj kumar(Leader)</li>
+            <li>Email: anujkumarroy99@gmail.com </li>
+            <li>Phone: 7562873521 </li>
+            <li>Address:flat no-19,c-block,b-block bhaskar plaza, Rathtala </li>
+        </ul>
+        <ul>
+            <li>Name: Aadish Jain(CO-Leader)</li>
+            <li>Email: aadishjain764@gmail.com </li>
+            <li>Phone:  8901249655 </li>
+            <li>Address:flat no-19,c-block,b-block bhaskar plaza, Rathtala </li>
+        </ul>
+    </main>
+    <script>
+        function toggleProfilePopup() {
+            const popup = document.getElementById('profilePopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onload = function() {
+            const storedData = JSON.parse(localStorage.getItem('userData'));
+            if (storedData) {
+                document.getElementById('profileName').textContent = 'Name: ' + storedData.name;
+                document.getElementById('profileEmail').textContent = 'Email: ' + storedData.email;
+                document.getElementById('profilePhone').textContent = 'Phone: ' + storedData.phone;
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

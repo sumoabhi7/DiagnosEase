@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.welcome-container h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.welcome-container button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.welcome-container button:hover {
+    background-color: #3e8e41;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="number"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #23527c;
+}
+
+#profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+#profile-container p {
+    margin-bottom: 20px;
+}
+#chat-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 270px;
+}
+
+#chatbox {
+    width: 100%;
+    max-width: 80%;
+    background-color: #fff;
+    padding: 20px;
+}
+
+#messages {
+    height: 30px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#userInput {
+    width: 75%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+#chatbox button {
+    width: 10%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.profile-popup {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    right: 0;
+    top: 100%; /* Position below the profile icon */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.profile-icon {
+    position: relative;
+    cursor: pointer;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .signup-box h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .signup-box input[type="text"],
+        .signup-box input[type="email"],
+        .signup-box input[type="tel"],
+        .signup-box input[type="number"],
+        .signup-box input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signup-box .gender {
+            margin: 10px 0;
+        }
+
+        .signup-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signup-box button:hover {
+            background-color: #45a049;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-box">
+        <h2>Sign Up</h2>
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email ID">
+        <input type="tel" id="phone" placeholder="Phone Number">
+        <input type="number" id="age" placeholder="Age">
+        <div class="gender">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>        
+        <input type="number" id="height" placeholder="Height (cm)">
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="saveSignUpData()">Sign Up</button>
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function saveSignUpData() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            const password = document.getElementById('password').value;
+
+            if (name && email && phone && age && gender && height && weight && password) {
+                const userData = {
+                    name,
+                    email,
+                    phone,
+                    age,
+                    gender,
+                    height,
+                    weight,
+                    password
+                };
+
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert('Sign-up successful!');
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert('Please fill all the fields.');
+            }
+        }
+    </script>
+</body>
+</html>
