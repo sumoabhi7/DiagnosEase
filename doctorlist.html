@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Directory</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Find a Doctor</h1>
+            <label for="doctor-type">Select Doctor Type:</label>
+            <select id="doctor-type" onchange="showDoctors()">
+                <option value="">--Select Type--</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="ent-specialist">ENT Specialist</option>
+                <option value="gastroenterologist">Gastroenterologist</option>
+                <option value="geriatrics">Geriatrician</option>
+                <option value="gynecologist">Gynecologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="nutritionist">Nutritionist</option>
+                <option value="orthopedic-surgeon">Orthopedic Surgeon</option>
+                <option value="otolaryngologist">Otolaryngologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="plastic-surgeon">Plastic Surgeon</option>
+                <option value="psychiatrist">Psychiatrist</option>
+                <option value="pulmonologist">Pulmonologist</option>
+                <option value="radiologist">Radiologist</option>
+                <option value="rheumatologist">Rheumatologist</option>
+                <option value="sports-medicine">Sports Medicine Specialist</option>
+                <option value="urologist">Urologist</option>
+            </select>
+
+            <div id="doctor-list" class="doctor-list">
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
