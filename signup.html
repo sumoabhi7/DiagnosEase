@@ -5,34 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <style>
-        body {
+        body 
+        {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: black;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
-
-        .signup-box {
+        .stars-container 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .star 
+        {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            animation: blink 2s infinite ease-in-out;
+        }
+        @keyframes blink 
+        {
+            0%, 50%, 100% 
+            {
+                opacity: 1;
+            }
+            25%, 75% 
+            {
+                opacity: 0.2;
+            }
+        }
+        .stars-container .star:nth-child(odd) 
+        {
+            animation-duration: 3s;
+        }
+        .stars-container .star:nth-child(even) 
+        {
+            animation-duration: 5s;
+        }
+        .signup-box 
+        {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            z-index: 1;
         }
-
-        .signup-box h2 {
+        .signup-box h2 
+        {
             margin-bottom: 20px;
             text-align: center;
             color: #333;
         }
-
         .signup-box input[type="text"],
         .signup-box input[type="email"],
         .signup-box input[type="tel"],
         .signup-box input[type="number"],
-        .signup-box input[type="password"] {
+        .signup-box input[type="password"] 
+        {
             width: 90%;
             padding: 10px;
             margin: 10px 0;
@@ -40,12 +81,12 @@
             border-radius: 5px;
             font-size: 16px;
         }
-
-        .signup-box .gender {
+        .signup-box .gender 
+        {
             margin: 10px 0;
         }
-
-        .signup-box button {
+        .signup-box button 
+        {
             width: 100%;
             padding: 10px;
             background-color: #4CAF50;
@@ -55,27 +96,28 @@
             font-size: 16px;
             cursor: pointer;
         }
-
-        .signup-box button:hover {
+        .signup-box button:hover 
+        {
             background-color: #45a049;
         }
-
-        .login-link {
+        .login-link 
+        {
             text-align: center;
             margin-top: 20px;
         }
-
-        .login-link a {
+        .login-link a 
+        {
             color: #4CAF50;
             text-decoration: none;
         }
-
-        .login-link a:hover {
+        .login-link a:hover 
+        {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <div class="stars-container"></div>
     <div class="signup-box">
         <h2>Sign Up</h2>
         <input type="text" id="name" placeholder="Name">
@@ -97,20 +139,39 @@
             <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
-
     <script>
-        function saveSignUpData() {
+        function createStar() 
+        {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.querySelector('.stars-container').appendChild(star);
+            setTimeout(() => 
+            {
+                star.remove();
+                createStar();
+            }, 5000);
+        }
+        for (let i = 0; i < 100; i++) 
+        {
+            createStar();
+        }
+        function saveSignUpData() 
+        {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const age = document.getElementById('age').value;
-            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const gender = document.getElementById('gender').value;
             const height = document.getElementById('height').value;
             const weight = document.getElementById('weight').value;
             const password = document.getElementById('password').value;
-
-            if (name && email && phone && age && gender && height && weight && password) {
-                const userData = {
+            if (name && email && phone && age && gender && height && weight && password) 
+            {
+                const userData = 
+                {
                     name,
                     email,
                     phone,
@@ -120,11 +181,12 @@
                     weight,
                     password
                 };
-
                 localStorage.setItem('userData', JSON.stringify(userData));
                 alert('Sign-up successful!');
-                window.location.href = "login.html"; // Redirect to login page
-            } else {
+                window.location.href = "login.html";
+            } 
+            else 
+            {
                 alert('Please fill all the fields.');
             }
         }
