@@ -198,5 +198,5 @@ function saveUserData(event) {
     toggleUpdateForm();
 }
 document.getElementById('redirectButton').addEventListener('click', function() {
-    window.location.href = 'fictionalcode1.html'; // Replace with your target URL
+    window.location.href = 'doctorlist.html'; // Replace with your target URL
 });
