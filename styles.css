@@ -1,10 +1,11 @@
-body {
+body 
+{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-
-.welcome-container {
+.welcome-container 
+{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,18 +13,18 @@ body {
     height: 100vh;
     background-color: #f0f0f0;
 }
-
-.welcome-container h1 {
+.welcome-container h1 
+{
     font-size: 36px;
     margin-bottom: 10px;
 }
-
-.welcome-container p {
+.welcome-container p 
+{
     font-size: 18px;
     margin-bottom: 20px;
 }
-
-.welcome-container button {
+.welcome-container button 
+{
     background-color: #4CAF50;
     color: #ffffff;
     padding: 10px 20px;
@@ -31,63 +32,64 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
-.welcome-container button:hover {
+.welcome-container button:hover 
+{
     background-color: #3e8e41;
 }
-body {
+body 
+{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-
-header {
+header 
+{
     background-color: #f0f0f0;
     padding: 1em;
     text-align: center;
 }
-
-nav ul {
+nav ul 
+{
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-between;
 }
-
-nav li {
+nav li 
+{
     margin-right: 20px;
 }
-
-nav a {
+nav a 
+{
     color: #337ab7;
     text-decoration: none;
 }
-
-main {
+main 
+{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2em;
 }
-
-form {
+form 
+{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-label {
+label 
+{
     margin-bottom: 10px;
 }
-
-input[type="text"], input[type="password"], input[type="tel"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="tel"], input[type="number"] 
+{
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
 }
-
-button[type="submit"] {
+button[type="submit"] 
+{
     background-color: #337ab7;
     color: #fff;
     padding: 10px 20px;
@@ -95,52 +97,54 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
 }
-
-button[type="submit"]:hover {
+button[type="submit"]:hover 
+{
     background-color: #23527c;
 }
-
-#profile-container {
+#profile-container 
+{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2em;
 }
-
-#profile-container p {
+#profile-container p 
+{
     margin-bottom: 20px;
 }
-#chat-container {
+#chat-container 
+{
+    height: 100% ;
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 270px;
 }
-
-#chatbox {
+#chatbox 
+{
     width: 100%;
     max-width: 80%;
     background-color: #fff;
     padding: 20px;
 }
-
-#messages {
-    height: 30px;
+#messages 
+{
+    height: 100%;
     overflow-y: auto;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 1%;
     border-radius: 10px;
 }
-
-#userInput {
+#userInput 
+{
     width: 75%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
 }
-
-#chatbox button {
+#chatbox button 
+{
     width: 10%;
     padding: 10px;
     background-color: #4CAF50;
@@ -149,18 +153,100 @@ button[type="submit"]:hover {
     border-radius: 5px;
     cursor:pointer;
 }
-.profile-popup {
-    display: none; /* Initially hidden */
+.profile-popup 
+{
+    width: auto;
+    display: none;
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
     padding: 10px;
     right: 0;
-    top: 100%; /* Position below the profile icon */
-    z-index: 1000; /* Ensure it appears above other elements */
+    top: 100%;
+    z-index: 1000;
 }
-
-.profile-icon {
+.profile-icon 
+{
     position: relative;
     cursor: pointer;
+}
+bmi-container 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#bmi-meter 
+{
+    width: 300px;
+    height: 30px;
+    background: linear-gradient(to right, green, yellow, orange, red);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+#bmi-bar 
+{
+    height: 100%;
+    width: 0;
+    background-color: black;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+}
+#bmi-value 
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+#chat-container 
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#update-form-container 
+{
+    margin-top: 20px;
+}
+#update-form 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+#update-form label 
+{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#update-form input, #update-form select 
+{
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#update-form button 
+{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#update-form button:hover 
+{
+    background-color: #45a049;
 }
