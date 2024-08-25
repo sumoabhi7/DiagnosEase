@@ -3,34 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login with Twinkling Stars</title>
     <style>
-        body {
+        body 
+        {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            background-color: black;
         }
-
-        .login-box {
+        .stars-container
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .star 
+        {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: gold;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink 
+        {
+            0%, 100% 
+            {
+                opacity: 0;
+            }
+            50% 
+            {
+                opacity: 1;
+            }
+        }
+        .login-box 
+        {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-        }
-
-        .login-box h2 {
-            margin-bottom: 20px;
             text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        .login-box h2 
+        {
+            margin-bottom: 20px;
             color: #333;
         }
-
-        .login-box input[type="text"],
-        .login-box input[type="tel"],
-        .login-box input[type="password"] {
+        .login-box input[type="email"],
+        .login-box input[type="password"] 
+        {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -38,8 +72,8 @@
             border-radius: 5px;
             font-size: 16px;
         }
-
-        .login-box button {
+        .login-box button 
+        {
             width: 90%;
             padding: 10px;
             background-color: #4CAF50;
@@ -49,53 +83,68 @@
             font-size: 16px;
             cursor: pointer;
         }
-
-        .login-box button:hover {
+        .login-box button:hover 
+        {
             background-color: #45a049;
         }
-
-        .signup-link {
+        .signup-link 
+        {
             text-align: center;
             margin-top: 20px;
         }
-
-        .signup-link a {
+        .signup-link a 
+        {
             color: #4CAF50;
             text-decoration: none;
         }
-
-        .signup-link a:hover {
+        .signup-link a:hover 
+        {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <div class="stars-container">
+    </div>
     <div class="login-box">
         <h2>Login</h2>
-        <input type="text" id="name" placeholder="Name">
-        <input type="tel" id="phone" placeholder="Phone Number">
+        <input type="email" id="email" placeholder="Email ID">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
         <div class="signup-link">
             <p>New user? <a href="signup.html">Sign Up</a></p>
         </div>
     </div>
-
     <script>
-        function login() {
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+        function login() 
+        {
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-
             const storedData = JSON.parse(localStorage.getItem('userData'));
-
-            if (storedData && name === storedData.name && phone === storedData.phone && password === storedData.password) {
+            if (storedData && email === storedData.email && password === storedData.password) 
+            {
                 alert('Login successful!');
                 window.location.href = "home.html";
-            } else {
-                alert('Incorrect name, phone, or password.');
+            } 
+            else 
+            {
+                alert('Incorrect email or password.');
             }
         }
+        document.addEventListener("DOMContentLoaded", () => 
+        {
+            const starContainer = document.querySelector('.stars-container');
+            const numberOfStars = 60;
+            for (let i = 0; i < numberOfStars; i++) 
+            {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                starContainer.appendChild(star);
+            }
+        });
     </script>
 </body>
 </html>
