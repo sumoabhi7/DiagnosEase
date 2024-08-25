@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagnosEase - Contact Us</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        header {
+            background-color: #007bff; 
+            padding: 10px 0;
+        }
+
+        header .nav-link {
+            color: #ffffff !important; 
+            font-weight: 500;
+            padding: 10px 15px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        header .nav-link:hover {
+            background-color: #0056b3; 
+            color: #ffffff !important; 
+        }
+
+        header .nav-link.active {
+            background-color: #0056b3; 
+            color: #ffffff !important; 
+        }
+
+        .profile-icon {
+            font-size: 24px;
+            color: #ffffff; 
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        
+        .profile-popup {
+            right: 0;
+            margin-top: 10px;
+            width: 200px;
+        }
+
+        body {
+            background-color: #e9ecef;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+        }
+
+        .profile-popup {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #343a40; 
+        }
+
+        header .nav-link {
+            color: #ffffff;
+        }
+
+        main h1 {
+            color: #343a40; 
+        }
+
+        .card-title {
+            color: #007bff; 
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        main h1 {
+            color: #343a40;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        main p.lead {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.25rem;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: #495057;
+            font-size: 1.1rem;
+        }
+
+       
+        .btn-custom {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        
+        @media (max-width: 768px) {
+            main h1 {
+                font-size: 2rem;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="p-3">
+        <nav class="container d-flex justify-content-between align-items-center">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+            </ul>
+            <div class="profile-icon" onclick="toggleProfilePopup()">👤
+                <div class="profile-popup" id="profilePopup">
+                    <p id="profileName">Name:</p>
+                    <p id="profileEmail">Email:</p>
+                    <p id="profilePhone">Phone:</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="mb-4">Contact Us</h1>
+        <p class="lead">Get in touch with us for any queries or feedback</p>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Anuj Kumar (Leader)</h5><br>
+                <p class="card-text">Email: anujkumarroy99@gmail.com</p><br>
+                <p class="card-text">Phone: 7562873521</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Aadish Jain (Co-Leader)</h5><br>
+                <p class="card-text">Email: aadishjain764@gmail.com</p><br>
+                <p class="card-text">Phone: 8901249655</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleProfilePopup() {
+            console.log('Toggle Function Triggered');
+            const popup = document.getElementById('profilePopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onload = function () {
+            const storedData = JSON.parse(localStorage.getItem('userData'));
+            if (storedData) {
+                console.log('Stored Data:', storedData);
+                document.getElementById('profileName').textContent = 'Name: ' + storedData.name;
+                document.getElementById('profileEmail').textContent = 'Email: ' + storedData.email;
+                document.getElementById('profilePhone').textContent = 'Phone: ' + storedData.phone;
+            } else {
+                console.log('No user data found in localStorage');
+            }
+        }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
